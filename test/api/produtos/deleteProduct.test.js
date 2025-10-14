@@ -29,7 +29,7 @@ beforeEach(async () => {
 });
 
 
-it.only('API - deve deletar um produto', async () => {
+it('API - deve deletar um produto', async () => {
     await spec()
     .delete(`/api/deleteProduct/${id}`)
     .withJson({
