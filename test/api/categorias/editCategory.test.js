@@ -14,10 +14,7 @@ beforeEach(async () => {
         "password": "admin123"
     })
     .returns('data.token')
-});
 
-
-beforeEach( async () => {
     id = await spec()
     .post("/api/addCategory")
     .withJson({
@@ -26,6 +23,7 @@ beforeEach( async () => {
     })
     .returns('data._id')
 });
+
 
 it('API - deve editar uma categoria com succeso', async () => {
     await spec()
