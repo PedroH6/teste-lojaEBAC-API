@@ -27,7 +27,7 @@ beforeEach( async () => {
     .returns('data._id')
 });
 
-it.only('API - deve editar uma categoria com succeso', async () => {
+it('API - deve editar uma categoria com succeso', async () => {
     await spec()
     .put(`/api/editCategory/${id}`)
     .withJson({

@@ -13,7 +13,7 @@ beforeEach(async () => {
     .returns('data.token')
 });
 
-it.only('API - deve add uma categoria', async () => {
+it('API - deve add uma categoria', async () => {
     await spec()
     .post("/api/addCategory")
     .withJson({
