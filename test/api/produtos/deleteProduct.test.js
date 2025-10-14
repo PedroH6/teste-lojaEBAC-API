@@ -28,21 +28,16 @@ beforeEach(async () => {
     .returns('data._id')
 });
 
-it('API - deve iditar um produto', async () => {
-    await spec()
-    .put(`/api/editProduct/${id}`)
-    .withJson({
-        "authorization": `${token}`,
-            "name": "iphone 17",
-            "price": "15000",
-            "quantity": "200",
-            "categories": "novo celular",
-            "description": "iphone"
-    })
-    .expectStatus(200)
-    .expectJsonLike({
-        success: true,
-        message: "product updated"
-    })
-});
 
+it.only('API - deve deletar um produto', async () => {
+    await spec()
+    .delete(`/api/deleteProduct/${id}`)
+    .withJson({
+         "authorization": `${token}`
+        })
+        .expectStatus(200)
+        .expectJsonLike({
+            success: true,
+            message: "product deleted",
+        })
+});
