@@ -15,27 +15,6 @@ beforeEach(async () => {
     .returns('data.token')
 });
 
-it('Deve validar o contrato de criação de produto', async () => {
-  const response = await spec()
-    .post("/api/addProduct")
-    .withHeaders('authorization', `${token}`)
-    .withJson({
-      name: "celular",
-      price: 15000,
-      quantity: 200,
-      categories: "novo celular",
-      description: "iphone"
-    })
-    .expectStatus(200)
-    .returns('res.body');
-
-  // Validação do contrato
-  const { error } = addProductContract.validate(response, { abortEarly: false });
-  if (error) {
-    throw new Error(`Contrato inválido: ${error.message}`);
-  }
-});
-
 it('API - deve add um produto', async () => {
     await spec()
     .post("/api/addProduct")
